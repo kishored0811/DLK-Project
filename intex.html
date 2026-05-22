@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admissions — VelTech College</title>
+  <link rel="stylesheet" href="Style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-orb orb-1" aria-hidden="true"></div>
+  <div class="bg-orb orb-2" aria-hidden="true"></div>
+
+  <div class="page-shell">
+
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="logo">
+          <span class="logo-mark">VT</span>
+          <span class="logo-text">VelTech<br>College</span>
+        </div>
+
+        <div class="sidebar-copy">
+          <h1 class="sidebar-headline">Shape Your<br><em>Future</em> Here.</h1>
+          <p class="sidebar-sub">Join thousands of students who turned ambition into achievement. Fill in your details and take the first step.</p>
+        </div>
+
+        <ul class="sidebar-steps" id="stepNav" aria-label="Form sections">
+          <li class="step-item active" data-step="1">
+            <span class="step-dot"></span>
+            <span class="step-label">Personal Info</span>
+          </li>
+          <li class="step-item" data-step="2">
+            <span class="step-dot"></span>
+            <span class="step-label">Contact Details</span>
+          </li>
+          <li class="step-item" data-step="3">
+            <span class="step-dot"></span>
+            <span class="step-label">Academic Background</span>
+          </li>
+          <li class="step-item" data-step="4">
+            <span class="step-dot"></span>
+            <span class="step-label">Course Preferences</span>
+          </li>
+        </ul>
+
+        <div class="sidebar-footer">
+          <p>Need help? <a href="mailto:admissions@meridian.edu">admissions@VelTech.edu</a></p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="form-panel">
+      <div class="progress-bar-wrap" aria-label="Progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <form id="admissionForm" novalidate autocomplete="off">
+
+        <section class="form-step active" data-step="1" aria-labelledby="s1-heading">
+          <header class="step-header">
+            <span class="step-tag">Step 1 of 4</span>
+            <h2 id="s1-heading">Personal Information</h2>
+            <p>Let us know the basics about you.</p>
+          </header>
+
+          <div class="fields-grid">
+            <div class="field-wrap">
+              <label for="firstName">First Name <span class="req">*</span></label>
+              <input type="text" id="firstName" name="firstName" placeholder="e.g. Jordan" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="lastName">Last Name <span class="req">*</span></label>
+              <input type="text" id="lastName" name="lastName" placeholder="e.g. Rivera" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="dob">Date of Birth <span class="req">*</span></label>
+              <input type="date" id="dob" name="dob" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="gender">Gender <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="gender" name="gender" required>
+                  <option value="">Select gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="nationality">Nationality <span class="req">*</span></label>
+              <input type="text" id="nationality" name="nationality" placeholder="e.g. American" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="idNumber">Aaadhar ID / Passport No. <span class="req">*</span></label>
+              <input type="text" id="idNumber" name="idNumber" placeholder="e.g. A12345678" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn-next" data-next="2">Continue <span class="arrow">→</span></button>
+          </div>
+        </section>
+
+        <section class="form-step" data-step="2" aria-labelledby="s2-heading" hidden>
+          <header class="step-header">
+            <span class="step-tag">Step 2 of 4</span>
+            <h2 id="s2-heading">Contact Details</h2>
+            <p>How can we reach you?</p>
+          </header>
+
+          <div class="fields-grid">
+            <div class="field-wrap full-width">
+              <label for="email">Email Address <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="phone">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 555 000 0000" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="altPhone">Alternate Phone</label>
+              <input type="tel" id="altPhone" name="altPhone" placeholder="+1 555 000 0001" />
+            </div>
+            <div class="field-wrap full-width">
+              <label for="address">Street Address <span class="req">*</span></label>
+              <input type="text" id="address" name="address" placeholder="123 Main Street, Apt 4B" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="city">City <span class="req">*</span></label>
+              <input type="text" id="city" name="city" placeholder="e.g. New York" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="zipCode">ZIP / Pin Code <span class="req">*</span></label>
+              <input type="text" id="zipCode" name="zipCode" placeholder="10001" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap full-width">
+              <label for="country">Country <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="country" name="country" required>
+                  <option value="">Select country</option>
+                  <option>United States</option>
+                  <option>United Kingdom</option>
+                  <option>Canada</option>
+                  <option>Australia</option>
+                  <option>India</option>
+                  <option>Germany</option>
+                  <option>France</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn-back" data-prev="1"><span class="arrow">←</span> Back</button>
+            <button type="button" class="btn-next" data-next="3">Continue <span class="arrow">→</span></button>
+          </div>
+        </section>
+
+        <section class="form-step" data-step="3" aria-labelledby="s3-heading" hidden>
+          <header class="step-header">
+            <span class="step-tag">Step 3 of 4</span>
+            <h2 id="s3-heading">Academic Background</h2>
+            <p>Tell us about your educational history.</p>
+          </header>
+
+          <div class="fields-grid">
+            <div class="field-wrap full-width">
+              <label for="highSchool">High School / Secondary School Name <span class="req">*</span></label>
+              <input type="text" id="highSchool" name="highSchool" placeholder="e.g. Lincoln High School" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="gradYear">Graduation Year <span class="req">*</span></label>
+              <input type="number" id="gradYear" name="gradYear" placeholder="e.g. 2024" min="1990" max="2030" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="gpa">GPA / Grade Average <span class="req">*</span></label>
+              <input type="text" id="gpa" name="gpa" placeholder="e.g. 3.8 / 4.0 or 85%" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap full-width">
+              <label for="prevInstitution">Previous College / University (if any)</label>
+              <input type="text" id="prevInstitution" name="prevInstitution" placeholder="e.g. City College of New York" />
+            </div>
+            <div class="field-wrap">
+              <label for="applType">Application Type <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="applType" name="applType" required>
+                  <option value="">Select type</option>
+                  <option>Freshman</option>
+                  <option>Transfer</option>
+                  <option>International</option>
+                  <option>Postgraduate</option>
+                </select>
+              </div>
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="entryTerm">Intended Entry Term <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="entryTerm" name="entryTerm" required>
+                  <option value="">Select term</option>
+                  <option>Fall 2026</option>
+                  <option>Spring 2027</option>
+                  <option>Summer 2027</option>
+                </select>
+              </div>
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap full-width">
+              <label for="achievements">Notable Achievements / Extracurriculars</label>
+              <textarea id="achievements" name="achievements" rows="3" placeholder="Awards, clubs, sports, volunteering…"></textarea>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn-back" data-prev="2"><span class="arrow">←</span> Back</button>
+            <button type="button" class="btn-next" data-next="4">Continue <span class="arrow">→</span></button>
+          </div>
+        </section>
+
+        <section class="form-step" data-step="4" aria-labelledby="s4-heading" hidden>
+          <header class="step-header">
+            <span class="step-tag">Step 4 of 4</span>
+            <h2 id="s4-heading">Course Preferences</h2>
+            <p>Choose your desired program and specialisation.</p>
+          </header>
+
+          <div class="fields-grid">
+            <div class="field-wrap full-width">
+              <label for="faculty">Faculty / School <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="faculty" name="faculty" required>
+                  <option value="">Select faculty</option>
+                  <option>Faculty of Science &amp; Technology</option>
+                  <option>Faculty of Business &amp; Economics</option>
+                  <option>Faculty of Arts &amp; Humanities</option>
+                  <option>Faculty of Law</option>
+                  <option>Faculty of Medicine &amp; Health Sciences</option>
+                  <option>Faculty of Social Sciences</option>
+                  <option>Faculty of Engineering</option>
+                  <option>Faculty of Education</option>
+                </select>
+              </div>
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+
+            <div class="field-wrap">
+              <label for="program">Degree Program <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="program" name="program" required>
+                  <option value="">Select program</option>
+                  <option>Bachelor of Science</option>
+                  <option>Bachelor of Arts</option>
+                  <option>Bachelor of Engineering</option>
+                  <option>Bachelor of Commerce</option>
+                  <option>Bachelor of Laws</option>
+                  <option>Master of Science</option>
+                  <option>Master of Arts</option>
+                  <option>Master of Business Administration</option>
+                  <option>Doctor of Philosophy (PhD)</option>
+                </select>
+              </div>
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+            <div class="field-wrap">
+              <label for="major">Intended Major <span class="req">*</span></label>
+              <input type="text" id="major" name="major" placeholder="e.g. Computer Science" required />
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+
+            <div class="field-wrap">
+              <label for="minor">Minor (optional)</label>
+              <input type="text" id="minor" name="minor" placeholder="e.g. Psychology" />
+            </div>
+            <div class="field-wrap">
+              <label for="studyMode">Study Mode <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="studyMode" name="studyMode" required>
+                  <option value="">Select mode</option>
+                  <option>Full-time</option>
+                  <option>Part-time</option>
+                  <option>Online</option>
+                  <option>Hybrid</option>
+                </select>
+              </div>
+              <span class="err-msg" aria-live="polite"></span>
+            </div>
+
+            <div class="field-wrap full-width">
+              <label>Scholarship Interest</label>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="scholarship" value="Yes" /> Yes, I'm interested
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="scholarship" value="No" /> No, not at this time
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="scholarship" value="Maybe" /> Maybe later
+                </label>
+              </div>
+            </div>
+
+            <div class="field-wrap full-width">
+              <label for="statement">Personal Statement <span class="req">*</span></label>
+              <textarea id="statement" name="statement" rows="5" placeholder="In 150–300 words, tell us why you wish to join Meridian College and how this program aligns with your goals…" required></textarea>
+              <span class="err-msg" aria-live="polite"></span>
+              <div class="char-counter" id="stmtCounter">0 / 300 words</div>
+            </div>
+
+            <div class="field-wrap full-width">
+              <label class="checkbox-item">
+                <input type="checkbox" id="terms" name="terms" required />
+                <span>I confirm that all information provided is accurate, and I agree to the <a href="#" target="_blank">Terms &amp; Conditions</a>. <span class="req">*</span></span>
+              </label>
+              <span class="err-msg" aria-live="polite" id="termsErr"></span>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn-back" data-prev="3"><span class="arrow">←</span> Back</button>
+            <button type="submit" class="btn-submit">
+              <span class="btn-text">Submit &amp; Export to Excel</span>
+              <span class="btn-icon">⬇</span>
+            </button>
+          </div>
+        </section>
+
+      </form>
+
+      <div class="success-state" id="successState" hidden>
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <h2>Application Submitted!</h2>
+        <p>Thank you for applying to VelTech College. Your data has been exported to <strong>VelTech.xlsx</strong>. Our admissions team will contact you within 5–7 business days.</p>
+        <button type="button" id="resetBtn" class="btn-next">Start New Application <span class="arrow">→</span></button>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="Script.js"></script>
+</body>
+</html>
