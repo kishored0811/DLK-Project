@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vel Tech — Student College Registration</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+<div class="page">
+  <aside class="hero">
+    <div class="hero-brand">
+      <div class="brand-crest">
+        <img src="logo-white-249x249-1.png" style="width: 45px;">
+      </div>
+      <div>
+        <div class="brand-name">Vel Tech</div>
+        <div class="brand-tag">Admissions Office · 2026–27</div>
+      </div>
+    </div>
+
+    <div class="hero-body">
+      <div class="hero-eyebrow">Student Enrollment</div>
+      <h1 class="hero-heading">
+        Begin Your<br>
+        <em>Academic</em>
+        Journey.
+      </h1>
+      <p class="hero-desc">Complete your digital registration to secure your place at the institution. The process takes approximately 10 minutes.</p>
+
+      <div class="hero-steps">
+        <div class="step-item" style="animation-delay:0.15s">
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Personal Details</strong>Fill in your personal & contact information.</div>
+        </div>
+        <div class="step-item" style="animation-delay:0.22s">
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>Academic Background</strong>Share your prior education history.</div>
+        </div>
+        <div class="step-item" style="animation-delay:0.29s">
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>Course Selection</strong>Choose your preferred program & courses.</div>
+        </div>
+        <div class="step-item" style="animation-delay:0.36s">
+          <div class="step-num">4</div>
+          <div class="step-text"><strong>Documents & Review</strong>Upload required documents and confirm.</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="form-panel" id="formPanel">
+
+    <div class="progress-wrap" id="progressBar">
+      <div class="prog-step active" data-step="1">
+        <div class="prog-circle">1</div>
+        <span class="prog-label">Personal</span>
+      </div>
+      <div class="prog-step" data-step="2">
+        <div class="prog-circle">2</div>
+        <span class="prog-label">Academic</span>
+      </div>
+      <div class="prog-step" data-step="3">
+        <div class="prog-circle">3</div>
+        <span class="prog-label">Course</span>
+      </div>
+      <div class="prog-step" data-step="4">
+        <div class="prog-circle">4</div>
+        <span class="prog-label">Documents</span>
+      </div>
+    </div>
+
+     <div class="step-section active" id="step1">
+      <div class="section-head">
+        <div class="section-num">Step 01 of 04</div>
+        <h2 class="section-title">Personal Information</h2>
+        <p class="section-sub">Please provide your legal name and personal details as they appear on your ID.</p>
+      </div>
+
+      <div class="field col-span-2" style="margin-bottom:24px">
+        <label class="field-label">Profile Photo</label>
+        <div class="photo-upload-wrap" onclick="document.getElementById('photoInput').click()">
+          <div class="photo-preview" id="photoPreview">
+            <svg class="ph-icon" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="photo-upload-text">
+            <div class="upload-title">Upload your photo</div>
+            <div class="upload-sub">JPG or PNG, min 200×200px, max 2MB</div>
+            <button class="btn-upload" type="button">Choose File</button>
+          </div>
+        </div>
+        <input type="file" id="photoInput" accept="image/*" style="display:none" onchange="previewPhoto(this)">
+      </div>
+
+      <div class="form-grid">
+        <div class="field">
+          <label class="field-label">First Name <span class="req">*</span></label>
+          <input class="field-input" id="firstName" type="text" placeholder="e.g. Alexandra">
+          <span class="field-error" id="err-firstName">⚠ First name is required.</span>
+        </div>
+        <div class="field">
+          <label class="field-label">Last Name <span class="req">*</span></label>
+          <input class="field-input" id="lastName" type="text" placeholder="e.g. Williams">
+          <span class="field-error" id="err-lastName">⚠ Last name is required.</span>
+        </div>
+        <div class="field">
+          <label class="field-label">Date of Birth <span class="req">*</span></label>
+          <input class="field-input" id="dob" type="date">
+          <span class="field-error" id="err-dob">⚠ Date of birth is required.</span>
+        </div>
+        <div class="field">
+          <label class="field-label">Gender <span class="req">*</span></label>
+          <select class="field-select" id="gender">
+            <option value="">— Select —</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+          <span class="field-error" id="err-gender">⚠ Please select your gender.</span>
+        </div>
+        <div class="field">
+          <label class="field-label">Nationality <span class="req">*</span></label>
+          <select class="field-select" id="nationality">
+            <option value="">— Select —</option>
+            <option>American</option><option>British</option><option>Canadian</option>
+            <option>Australian</option><option>Indian</option><option>German</option>
+            <option>French</option><option>Chinese</option><option>Japanese</option>
+            <option>Other</option>
+          </select>
+          <span class="field-error" id="err-nationality">⚠ Please select nationality.</span>
+        </div>
+        <div class="field">
+          <label class="field-label">Aadhaar ID / Passport No.</label>
+          <input class="field-input" id="natId" type="text" placeholder="ID or Passport number">
+        </div>
+        <div class="field">
+          <label class="field-label">Email Address <span class="req">*</span></label>
+          <input class="field-input" id="email" type="email" placeholder="you@example.com">
+          <span class="field-error" id="err-email">⚠ Enter a valid email address.</span>
+        </div>
+        <div class="field">
+          <label class="field-label">Phone Number <span class="req">*</span></label>
+          <input class="field-input" id="phone" type="tel" placeholder="+1 (555) 000-0000">
+          <span class="field-error" id="err-phone">⚠ Phone number is required.</span>
+        </div>
+        <div class="field col-span-2">
+          <label class="field-label">Home Address <span class="req">*</span></label>
+          <input class="field-input" id="address" type="text" placeholder="Street address, City, State, ZIP">
+          <span class="field-error" id="err-address">⚠ Address is required.</span>
+        </div>
+
+        <div class="field col-span-2">
+          <label class="field-label">Emergency Contact Name & Phone</label>
+          <input class="field-input" id="emergency" type="text" placeholder="Name — +1 (555) 000-0000">
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <span></span>
+        <button class="btn btn-next" onclick="goNext(1)">
+          Continue
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="step-section" id="step2">
+      <div class="section-head">
+        <div class="section-num">Step 02 of 04</div>
+        <h2 class="section-title">Academic Background</h2>
+        <p class="section-sub">Tell us about your prior education and qualifications.</p>
+      </div>
+
+      <div class="form-grid">
+        <div class="field col-span-2">
+          <label class="field-label">Previous School / Institution <span class="req">*</span></label>
+          <input class="field-input" id="prevSchool" type="text" placeholder="Name of your last school or college">
+          <span class="field-error" id="err-prevSchool">⚠ This field is required.</span>
+        </div>
+        <div class="field">
+          <label class="field-label">Qualification / Degree <span class="req">*</span></label>
+          <select class="field-select" id="qualification">
+            <option value="">— Select —</option>
+            <option>High School Diploma / A-Levels</option>
+            <option>GED</option>
+            <option>Associate Degree</option>
+            <option>Bachelor's Degree</option>
+            <option>Other</option>
+          </select>
+          <span class="field-error" id="err-qualification">⚠ Please select your qualification.</span>
+        </div>
+        <div class="field">
+          <label class="field-label">Year of Graduation <span class="req">*</span></label>
+          <select class="field-select" id="gradYear">
+            <option value="">— Year —</option>
+            <option>2024</option><option>2023</option><option>2022</option>
+            <option>2021</option><option>2020</option><option>2019</option>
+            <option>2018</option><option>Earlier</option>
+          </select>
+          <span class="field-error" id="err-gradYear">⚠ Please select year.</span>
+        </div>
+        <div class="field">
+          <label class="field-label">GPA / Percentage</label>
+          <input class="field-input" id="gpa" type="text" placeholder="e.g. 3.8 / 4.0 or 92%">
+        </div>
+        <div class="field">
+          <label class="field-label">Country of Study</label>
+          <select class="field-select" id="studyCountry">
+            <option value="">— Select —</option>
+            <option>United States</option><option>United Kingdom</option><option>Canada</option>
+            <option>Australia</option><option>India</option><option>Germany</option>
+            <option>France</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field col-span-2">
+          <label class="field-label">Notable Achievements / Awards</label>
+          <textarea class="field-textarea" id="achievements" placeholder="Dean's list, scholarships, competitions, etc."></textarea>
+        </div>
+        <div class="field col-span-2">
+          <label class="field-label">Additional Languages Spoken</label>
+          <div class="check-group">
+            <div class="check-btn"><input type="checkbox" id="lang-es"><label for="lang-es">Spanish</label></div>
+            <div class="check-btn"><input type="checkbox" id="lang-fr"><label for="lang-fr">French</label></div>
+            <div class="check-btn"><input type="checkbox" id="lang-de"><label for="lang-de">German</label></div>
+            <div class="check-btn"><input type="checkbox" id="lang-zh"><label for="lang-zh">Mandarin</label></div>
+            <div class="check-btn"><input type="checkbox" id="lang-ar"><label for="lang-ar">Arabic</label></div>
+            <div class="check-btn"><input type="checkbox" id="lang-hi"><label for="lang-hi">Hindi</label></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn btn-back" onclick="goBack(2)">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <button class="btn btn-next" onclick="goNext(2)">
+          Continue
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="step-section" id="step3">
+      <div class="section-head">
+        <div class="section-num">Step 03 of 04</div>
+        <h2 class="section-title">Course Selection</h2>
+        <p class="section-sub">Choose the program and courses you wish to enroll in for the upcoming academic year.</p>
+      </div>
+
+      <div class="form-grid">
+        <div class="field col-span-2">
+          <label class="field-label">Preferred Faculty / School <span class="req">*</span></label>
+          <select class="field-select" id="faculty" onchange="updateCourses()">
+            <option value="">— Select Faculty —</option>
+            <option>School of Engineering & Technology</option>
+            <option>School of Business & Management</option>
+            <option>School of Arts & Humanities</option>
+            <option>School of Medicine & Health Sciences</option>
+            <option>School of Law & Political Science</option>
+            <option>School of Natural Sciences</option>
+          </select>
+          <span class="field-error" id="err-faculty">⚠ Please select a faculty.</span>
+        </div>
+        <div class="field col-span-2">
+          <label class="field-label">Degree Program <span class="req">*</span></label>
+          <select class="field-select" id="program">
+            <option value="">— Select Faculty first —</option>
+          </select>
+          <span class="field-error" id="err-program">⚠ Please select a program.</span>
+        </div>
+        <div class="field">
+          <label class="field-label">Study Mode <span class="req">*</span></label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="mode" id="mode-ft" value="Full-Time"><label for="mode-ft">Full-Time</label></div>
+            <div class="radio-btn"><input type="radio" name="mode" id="mode-pt" value="Part-Time"><label for="mode-pt">Part-Time</label></div>
+            <div class="radio-btn"><input type="radio" name="mode" id="mode-on" value="Online"><label for="mode-on">Online</label></div>
+          </div>
+          <span class="field-error" id="err-mode">⚠ Please select a mode.</span>
+        </div>
+        <div class="field">
+          <label class="field-label">Intake Semester <span class="req">*</span></label>
+          <select class="field-select" id="semester">
+            <option value="">— Select —</option>
+            <option>Fall 2024 (September)</option>
+            <option>Spring 2025 (January)</option>
+            <option>Summer 2025 (May)</option>
+          </select>
+          <span class="field-error" id="err-semester">⚠ Please select a semester.</span>
+        </div>
+        <div class="field col-span-2">
+          <label class="field-label">Do you require accommodation on campus?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="accom" id="accom-y" value="Yes"><label for="accom-y">Yes, on-campus</label></div>
+            <div class="radio-btn"><input type="radio" name="accom" id="accom-n" value="No"><label for="accom-n">No, off-campus</label></div>
+          </div>
+        </div>
+        <div class="field col-span-2">
+          <label class="field-label">How did you hear about us?</label>
+          <select class="field-select" id="source">
+            <option value="">— Select —</option>
+            <option>Social Media</option><option>Friend / Family</option>
+            <option>School Counselor</option><option>College Fair</option>
+            <option>Website / Google</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field col-span-2">
+          <label class="field-label">Personal Statement</label>
+          <textarea class="field-textarea" id="statement" style="min-height:120px" placeholder="In 150–300 words, tell us why you want to study this program and what drives you academically…"></textarea>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn btn-back" onclick="goBack(3)">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <button class="btn btn-next" onclick="goNext(3)">
+          Continue
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="step-section" id="step4">
+      <div class="section-head">
+        <div class="section-num">Step 04 of 04</div>
+        <h2 class="section-title">Documents & Review</h2>
+        <p class="section-sub">Upload required documents and verify your information before submitting.</p>
+      </div>
+
+      <div class="field" style="margin-bottom:24px">
+        <label class="field-label">Required Documents <span class="req">*</span></label>
+        <div class="doc-zone" id="docZone"
+          ondragover="e=>e.preventDefault()"
+          onclick="document.getElementById('docInput').click()">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+          <p><strong>Click to upload</strong> or drag &amp; drop</p>
+          <p>Transcripts, ID scan, certificates (PDF, JPG, PNG — max 5MB each)</p>
+        </div>
+        <input type="file" id="docInput" multiple accept=".pdf,.jpg,.jpeg,.png" style="display:none" onchange="handleDocs(this)">
+        <div class="doc-list" id="docList"></div>
+      </div>
+
+      <div style="background:#fff;border:1.5px solid var(--cream);border-radius:var(--radius-lg);padding:24px;margin-bottom:24px">
+
+        <div class="review-section">
+          <div class="review-heading">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a4 4 0 014-4h8a4 4 0 014 4v2"/></svg>
+            Personal
+          </div>
+          <div class="review-grid" id="rev-personal"></div>
+        </div>
+
+        <div class="review-section">
+          <div class="review-heading">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg>
+            Academic
+          </div>
+          <div class="review-grid" id="rev-academic"></div>
+        </div>
+
+        <div class="review-section" style="margin-bottom:0">
+          <div class="review-heading">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+            Course
+          </div>
+          <div class="review-grid" id="rev-course"></div>
+        </div>
+      </div>
+
+      <div class="terms-box">
+        <h4>Terms & Conditions of Enrollment</h4>
+        By submitting this application, you confirm that all information provided is accurate and truthful.
+        Any falsification of information may result in disqualification or dismissal from the program.
+        You agree to abide by the institution's academic code of conduct, student handbook policies,
+        and all applicable regulations. Acceptance of an offer of admission is conditional upon
+        verification of all submitted documentation. The institution reserves the right to withdraw
+        any offer at any time if inaccuracies are found. Your data will be stored securely and used
+        solely for enrollment and administrative purposes in accordance with our Privacy Policy.
+        Registration fees once paid are non-refundable unless specified otherwise in the fee schedule.
+      </div>
+
+      <div class="check-agree">
+        <input type="checkbox" id="agreeTerms">
+        <label for="agreeTerms">I confirm that all information is accurate and I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</label>
+      </div>
+      <div class="check-agree">
+        <input type="checkbox" id="agreeAge">
+        <label for="agreeAge">I confirm I am 17 years or older, or applying with parental / guardian consent.</label>
+      </div>
+
+      <span class="field-error" id="err-terms" style="margin-bottom:8px">⚠ Please accept all agreements to proceed.</span>
+
+      <div class="form-nav">
+        <button class="btn btn-back" onclick="goBack(4)">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <button class="btn btn-submit" id="submitBtn" onclick="submitForm()">
+          Submit Application
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="successScreen">
+      <div class="success-icon">
+        <svg width="40" height="40" fill="none" stroke="#1a1208" stroke-width="2.5" viewBox="0 0 24 24">
+          <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+        </svg>
+      </div>
+      <h2 class="success-title">Application Submitted!</h2>
+      <p class="success-msg">Congratulations! Your registration has been received. Our admissions team will review your application and contact you within 5–7 business days.</p>
+      <div class="ref-box">
+        <div class="ref-label">Application Reference</div>
+        <div class="ref-number" id="refNumber">—</div>
+      </div>
+      <div class="success-steps">
+        <div class="next-step">
+          <div class="next-step-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <span class="next-step-text">Check your email for confirmation</span>
+        </div>
+        <div class="next-step">
+          <div class="next-step-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2" ry="2"/></svg>
+          </div>
+          <span class="next-step-text">Prepare original documents for verification</span>
+        </div>
+        <div class="next-step">
+          <div class="next-step-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <span class="next-step-text">A wait interview or orientation invitation</span>
+        </div>
+      </div>
+      <button class="btn-restart" onclick="restartForm()">Register Another Student</button>
+    </div>
+  </main>
+</div>
+
+<footer>
+
+  <div class="newsletter-banner">
+    <div class="nl-text">
+      <h3>Stay<br><span>Connected</span><br>with Vel Tech</h3>
+      <p>Receive updates on admissions, events, scholarships & campus news.</p>
+    </div>
+    <div class="nl-form">
+      <input type="email" placeholder="Enter your email address" aria-label="Email for newsletter" />
+      <button type="button">Subscribe</button>
+    </div>
+  </div>
+
+  <div class="footer-grid">
+
+    <div class="col-brand">
+      <div class="logo-lockup">
+        <img src="logo-white-249x249-1.png" style="width: 40px;">
+        <div class="logo-text">
+          <strong>Vel Tech</strong>
+          <span>Student Enrollment · 2026–27</span>
+        </div>
+      </div>
+      <p>
+        Empowering students through world-class education, research, and innovation.
+        Vel Tech University is committed to shaping future-ready professionals
+        across engineering, sciences, and management disciplines.
+      </p>
+      <div class="social-row">
+        <a href="#" class="social-btn" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="var(--dark)"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="var(--dark)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--dark)"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="Twitter / X">
+          <svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Courses &amp; Programs</a></li>
+        <li><a href="#">Admissions</a></li>
+        <li><a href="#">Placements</a></li>
+        <li><a href="#">Research &amp; Labs</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="col-links">
+      <h4>Student Services</h4>
+      <ul>
+        <li><a href="#">Registration Portal</a></li>
+        <li><a href="#">Student Login</a></li>
+        <li><a href="#">Exam Results</a></li>
+        <li><a href="#">Scholarship Info</a></li>
+        <li><a href="#">Library Access</a></li>
+        <li><a href="#">Help Center</a></li>
+      </ul>
+    </div>
+
+    <div class="col-links">
+      <h4>Important Links</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Careers at VT</a></li>
+        <li><a href="#">Anti-Ragging Cell</a></li>
+        <li><a href="#">NAAC Accreditation</a></li>
+      </ul>
+    </div>
+
+    <div class="col-contact">
+      <h4>Contact Information</h4>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="var(--dark)"/></svg>
+        </div>
+        <div class="contact-info">
+          <span>Address</span>
+          <p>Avadi–Vel Tech Road, Avadi,<br>Chennai – 600 062, Tamil Nadu</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+        </div>
+        <div class="contact-info">
+          <span>Phone</span>
+          <a href="tel:+18002127669">+1 (800) 212-7669</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" fill="none" stroke="var(--dark)" stroke-width="1.5"/></svg>
+        </div>
+        <div class="contact-info">
+          <span>Email</span>
+          <a href="mailto:admissions@veltech.in">admissions@veltech.in</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12" stroke="var(--dark)" stroke-width="1.5"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="var(--dark)" stroke-width="1.5"/></svg>
+        </div>
+        <div class="contact-info">
+          <span>Website</span>
+          <a href="https://www.veltech.edu.in" target="_blank">www.veltech.edu.in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-strip">
+    <iframe
+      title="Vel Tech Location"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.0!2d80.098!3d13.103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526467fedf2aad%3A0xed84e0f05e2b93b0!2sVel%20Tech%20University!5e0!3m2!1sen!2sin!4v1"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    <div class="map-overlay">
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="#1a1408"/></svg>
+      <span>Vel Tech University, Chennai</span>
+    </div>
+  </div>
+
+  <hr class="footer-divider" />
+
+  <div class="footer-bottom">
+    <p>© 2026 <a href="#">Vel Tech College</a>. All rights reserved. Designed with care for our students.</p>
+    <div class="bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Sitemap</a>
+      <a href="#">Accessibility</a>
+    </div>
+  </div>
+
+</footer>
+
+<button id="backTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+</button>
+
+<script src="Script.js"></script>
+</body>
+</html>
